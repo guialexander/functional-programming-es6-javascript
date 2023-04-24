@@ -101,20 +101,35 @@ const cars =
     { brand: 'Ferrari', price: 9541, model: 1970 } 
 ];
 //Create a function ferraris that returns all the cars of the Ferrari brand. metodo filter
+function ferrari(cars){
 const Ferrari=cars.filter((car)=>car.brand =="Ferrari");
-console.log(Ferrari);
+return Ferrari;
+};
+
 // Create a function nineties that returns all the cars with models between 1980 and 1990.
+function nineties(cars){
 const nineties =cars.filter((car)=>(car.model>=1980 &&car.model<=1990));
-console.log(nineties);
+return nineties;
+};
+
 //Create a function list that returns an array of strings with the same number of cars. Each element should contain the string “This from costs $” (e.g. for the first element it should say “This Mazda from 1989 costs $5241”).
+function list(cars){
 const list= cars.map(car => ({ list: `This ${car.brand} from ${car.model} costs $ ${car.price}`
     }));
-console.log(list);
+return list;
+};
 
 //Create a function bmwSum that returns the sum of all prices of the BMW cars.
+function filterbmw(cars){
 const filterbmw=car=>car.brand == "BMW";
 
 const bmw= cars.filter(filterbmw);
 console.log(bmw);
 const sumabmw=bmw.reduce((acc,items)=> acc+=items.price,0)
-console.log("El total de la sumatoria de los precios de los BMW es de  : " + sumabmw);
+return sumabmw;
+
+};
+console.log(ferrari(cars));
+console.log(nineties(cars));
+console.log(list(cars));
+console.log("El total de la sumatoria de los precios de los BMW es de  : " + filterbmw(cars));
